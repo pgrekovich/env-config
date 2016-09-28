@@ -101,6 +101,25 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 
 ### VPN
 
+Рабочий VPN:
+
+Создаём VPN-соединие:
+
+1. Settings → Network → + → VPN → OpenVPN.
+2. Название: «Work VPN».
+3. Указываем шлюз
+4. Тип: «Password with Certificates (TLS)».
+5. Указываем сертификаты и приватный ключ из скаченной папки.
+6. Advanced → General:
+  - Use LZO data compression
+  - Use a TCP connection
+  - Set virtual device type: `TUN` and name: `tun`
+  - Use custom tunnel Maximum Transmission Unit `1500`
+  - Restrict tunnel TCP Maximum Segment Size
+7. Advanced → Security
+  - Cipher: `AES-128-CBC`
+  - HMAC Authentication: `SHA-1`
+
 
 
 ### Браузеры
@@ -190,6 +209,15 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 sudo dnf install man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape transmission-gtk
 ```
 
+
+Spotify
+
+```sh
+dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+dnf install spotify-client
+```
+
+
 Устаналивливаем шрифты от Microsoft:
 
 ```sh
@@ -224,12 +252,9 @@ sudo dnf install git gitg ack redis
 Устаналиваем `node` и `npm`:
 
 ```sh
-mkdir -p ~/.node/nodejs/
 wget https://nodejs.org/dist/latest/node-v6.6.0-linux-x64.tar.gz
-tar -xf node-* -C ~/.node/nodejs --strip-components=1
+sudo tar --strip-components 1 -xzvf node-v* -C /usr/local
 rm node-*.xz
-cd ~/.node/
-npm install
 ```
 
 
@@ -239,6 +264,36 @@ npm install
 sudo dnf install golang
 mkdir -p ~/.go
 go get -u -f github.com/DarthSim/hivemind
+```
+
+Устанавливаем VirtualBox:
+
+Пишем в файл `/etc/yum.repos.d/virtualbox.repo`:
+
+```sh
+[virtualbox]
+name=Fedora $releasever - $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+```
+Устанавливаем:
+
+```sh
+dnf install VirtualBox
+```
+
+Устанавливаем Vagrant:
+
+```sh
+## Ставим зависимости ##
+sudo dnf install ruby-devel redhat-rpm-config zlib-devel
+## Ставим Vagrant ##
+sudo dnf install vagrant
+## Ставим плагины ##
+vagrant plugin install vagrant-cachier
 ```
 
 ### Текстовые редакторы
@@ -261,7 +316,7 @@ sudo dnf install vim
 Установить Атом:
 
 ```sh
-wget https://atom.io/download/rpm?channel=beta -O atom.rpm
+wget https://atom.io/download/rpm -O atom.rpm
 sudo dnf install atom.rpm
 rm atom.rpm
 ```
@@ -297,7 +352,65 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```sh
   curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh
 ```
-
 ### Чаты
+##### Skype
 
-To be continued...
+```sh
+## Install Needed Dependencies ##
+dnf install alsa-lib.i686 fontconfig.i686 freetype.i686 \
+glib2.i686 libSM.i686 libXScrnSaver.i686 libXi.i686 \
+libXrandr.i686 libXrender.i686 libXv.i686 libstdc++.i686 \
+pulseaudio-libs.i686 qt.i686 qt-x11.i686 zlib.i686 qtwebkit.i686
+
+
+cd /tmp
+
+wget --trust-server-names http://www.skype.com/go/getskype-linux-dynamic
+
+mkdir /opt/skype
+
+tar xvf skype-4.3* -C /opt/skype --strip-components=1
+
+## Link skype.desktop ##
+ln -s /opt/skype/skype.desktop /usr/share/applications/skype.desktop
+
+## Link icons (copy and paste all rows at once) ##
+for icon in /opt/skype/icons/*; do
+ressuffix="${icon##*_}"
+res="${ressuffix%%.*}"
+ln -s "$icon" /usr/share/icons/hicolor/"$res"/apps/skype.png
+done
+
+## Update gtk icon cache (needed at least Gnome/GTK envorinments) ##
+gtk-update-icon-cache /usr/share/icons/hicolor
+
+## Update gtk icon cache (needed at least Gnome/GTK envorinments) ##
+touch /usr/bin/skype
+chmod 755 /usr/bin/skype
+```
+
+Открываем в vim файл `/usr/bin/skype` и добавляем:
+
+```sh
+  #!/bin/sh
+  export SKYPE_HOME="/opt/skype"
+
+  $SKYPE_HOME/skype --resources=$SKYPE_HOME $*
+```
+
+В настройках скайпа выключаем звук на отправку сообщения, выключаем все уведомления кроме входящего звонка, файла, сообщения.
+Включаем `Display built-in system pop-up notification`
+
+#### Telegram
+https://slack.com/downloads/instructions/fedora
+```sh
+sudo dnf copr enable rommon/telegram
+sudo dnf install telegram-desktop
+```
+
+#### Slack
+
+```
+Качаем и ставим с сайта:
+https://slack.com/downloads/linux
+```
