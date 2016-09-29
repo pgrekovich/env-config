@@ -110,13 +110,14 @@ dconf write /org/freedesktop/tracker/miner/files/crawling-interval -2
 3. Указываем шлюз
 4. Тип: «Password with Certificates (TLS)».
 5. Указываем сертификаты и приватный ключ из скаченной папки.
-6. Advanced → General:
+6. На вкладках IPv4 и IPv6 ставим галочки на `Use this connection oly for resources on its network`
+7. Advanced → General:
   - Use LZO data compression
   - Use a TCP connection
   - Set virtual device type: `TUN` and name: `tun`
   - Use custom tunnel Maximum Transmission Unit `1500`
   - Restrict tunnel TCP Maximum Segment Size
-7. Advanced → Security
+8. Advanced → Security
   - Cipher: `AES-128-CBC`
   - HMAC Authentication: `SHA-1`
 
