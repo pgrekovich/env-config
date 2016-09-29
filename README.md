@@ -269,22 +269,25 @@ go get -u -f github.com/DarthSim/hivemind
 
 Устанавливаем VirtualBox:
 
-Пишем в файл `/etc/yum.repos.d/virtualbox.repo`:
+```sh
+sudo su -
+cd /etc/yum.repos.d/
+wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+dnf update
+```
+Если обновилось ядро перезагружаемся
 
 ```sh
-[virtualbox]
-name=Fedora $releasever - $basearch - VirtualBox
-baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/$releasever/$basearch
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
-```
-Устанавливаем:
+dnf install binutils gcc make patch libgomp glibc-headers \
+glibc-devel kernel-headers kernel-devel dkms
 
-```sh
-dnf install VirtualBox
+dnf install VirtualBox-5.0
+
+/usr/lib/virtualbox/vboxdrv.sh setup
+
+usermod -a -G vboxusers username
 ```
+
 
 Устанавливаем Vagrant:
 
@@ -295,6 +298,8 @@ sudo dnf install ruby-devel redhat-rpm-config zlib-devel
 sudo dnf install vagrant
 ## Ставим плагины ##
 vagrant plugin install vagrant-cachier
+## Выбираем дефолтного провайдера
+echo "export VAGRANT_DEFAULT_PROVIDER=virtualbox" >> ~/.bashrc
 ```
 
 ### Текстовые редакторы
