@@ -153,7 +153,7 @@ sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current
 Установить шрифт Fira Mono и Fire Code:
 
 ```sh
-sudo dnf install mozilla-fira-mono-fonts
+sudo dnf install -y mozilla-fira-mono-fonts
 mkdir -p ~/.fonts/FiraCode/
 ```
 
@@ -168,22 +168,22 @@ fc-cache
 
 ```sh
 sudo dnf config-manager --add-repo http://download.opensuse.org/repositories/home:snwh:moka/Fedora_24/home:snwh:moka.repo
-sudo dnf install moka-icon-theme
+sudo dnf install -y moka-icon-theme
 
 dnf config-manager --add-repo http://download.opensuse.org/repositories/home:Horst3180/Fedora_24/home:Horst3180.repo
-dnf install arc-theme
+dnf install -y arc-theme
 ```
 
 Улучшаем рендер шрифтов:
 
 ```sh
-sudo dnf install freetype-freeworld
+sudo dnf install -y freetype-freeworld
 ```
 
 Установить GNOME Tweek Tool:
 
 ```sh
-sudo dnf install gnome-tweak-tool
+sudo dnf install -y gnome-tweak-tool
 ```
 
 И выставить в нём настроки:
@@ -207,15 +207,15 @@ sudo dnf install amrnb amrwb faac faad2 flac gstreamer1-libav gstreamer1-plugins
 Устанавливаем программы:
 
 ```sh
-sudo dnf install man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape transmission-gtk
+sudo dnf install -y man-pages-ru mpv gimp unrar p7zip p7zip-plugins inkscape transmission-gtk
 ```
 
 
 Spotify
 
 ```sh
-dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
-dnf install spotify-client
+sudo dnf config-manager --add-repo=http://negativo17.org/repos/fedora-spotify.repo
+sudo dnf install -y spotify-client
 ```
 
 
@@ -246,7 +246,7 @@ rm -R Видео Документы Изображения Музыка Обще
 Устанавливаем пакеты:
 
 ```sh
-sudo dnf install git gitg ack redis
+sudo dnf install -y git gitg ack redis
 ```
 
 
@@ -358,6 +358,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 ```sh
   curl -o - https://raw.githubusercontent.com/denysdovhan/spaceship-zsh-theme/master/install.sh | zsh
 ```
+
+Добавляем в `~/.zshrc`:  `ZSH_THEME="spaceship"`
 ### Чаты
 ##### Skype
 

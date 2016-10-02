@@ -1,0 +1,81 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor:
+        red: 236
+        green: 64
+        blue: 122
+        alpha: 1
+      accentColor:
+        red: 70
+        green: 255
+        blue: 193
+        alpha: 1
+      paintCursor: true
+      predefinedColor: "Pink"
+    fonts: {}
+    tabs: {}
+    treeView:
+      compactList: true
+    ui:
+      panelContrast: true
+      panelShadows: true
+  core:
+    autoHideMenuBar: true
+    disabledPackages: [
+      "language-objective-c"
+      "archive-view"
+      "autosave"
+      "bookmarks"
+      "language-clojure"
+      "language-perl"
+      "language-php"
+      "language-toml"
+      "snippets"
+      "welcome"
+      "spell-check"
+      "deprecation-cop"
+      "timecop"
+      "styleguide"
+      "linter-stylelint"
+    ]
+    projectHome: "/home/pgrekovich/Dev"
+    themes: [
+      "atom-material-ui"
+      "atom-panda-syntax"
+    ]
+  editor:
+    fontFamily: "Fira Code Retina"
+    fontSize: 16
+    invisibles: {}
+    nonWordCharacters: "^*\"`'/|\\?!;:,.%#@(){}[]<>=+-~_"
+    showIndentGuide: true
+    softWrap: true
+    tabLength: 2
+    zoomFontWhenCtrlScrolling: false
+  "file-icons":
+    onChanges: true
+  "fuzzy-finder":
+    ignoredNames: [
+      "node_modules"
+    ]
+  jumpy:
+    highContrast: true
+  minimap:
+    displayPluginsControls: false
+    plugins:
+      "find-and-replace": true
+      "find-and-replaceDecorationsZIndex": 0
+      "git-diff": true
+      "git-diffDecorationsZIndex": 0
+      linter: true
+      linterDecorationsZIndex: 0
+  "tree-view": {}
+  "vim-mode":
+    startInInsertMode: true
+    useClipboardAsDefaultRegister: true
+    useSmartcaseForSearch: true
+  "vim-mode-plus":
+    startInInsertMode: true
+  welcome:
+    showOnStartup: false

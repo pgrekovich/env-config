@@ -1,0 +1,13 @@
+#
+# Vim mode
+#
+'atom-text-editor.vim-mode.insert-mode':
+  'k j': 'vim-mode:activate-normal-mode' # Duplicates bcoz I always confuse this
+  'ctrl-c' : 'unset!'
+'atom-text-editor:not(.mini).vim-mode:not(.insert-mode):not(.jumpy-jump-mode)':
+  'f': 'jumpy:toggle' # Add jumpy to vim-mode
+'atom-text-editor:not(.mini).vim-mode:not(.insert-mode)':
+  'alt-shift-k': 'editor:add-selection-above' # Add selection for j
+  'alt-shift-j': 'editor:add-selection-below' # Add selection for k
+
+#

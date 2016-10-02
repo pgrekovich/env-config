@@ -1,7 +1,7 @@
 ## Atom Theme and Plugins
 
 Plugins:
-
+- `vim-mode`
 - `language-slim`
 - `language-jade`
 - `language-postcss`
@@ -21,6 +21,6 @@ Themes:
 
 Font:
 
-- [Fira Code](https://github.com/tonsky/FiraCode)
+- [Fira Code Retina](https://github.com/tonsky/FiraCode)
 
-See also: [Atom config](./atom.cson)
+See also: [Atom configs](./atom/)
