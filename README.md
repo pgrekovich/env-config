@@ -253,7 +253,7 @@ sudo dnf install git gitg ack redis
 Устаналиваем `node` и `npm`:
 
 ```sh
-wget https://nodejs.org/dist/latest/node-v6.6.0-linux-x64.tar.gz
+wget https://nodejs.org/dist/latest/node-v6.7.0-linux-x64.tar.gz
 sudo tar --strip-components 1 -xzvf node-v* -C /usr/local
 rm node-*.xz
 ```
@@ -408,7 +408,6 @@ chmod 755 /usr/bin/skype
 Включаем `Display built-in system pop-up notification`
 
 #### Telegram
-https://slack.com/downloads/instructions/fedora
 ```sh
 sudo dnf copr enable rommon/telegram
 sudo dnf install telegram-desktop
