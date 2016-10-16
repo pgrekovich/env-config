@@ -279,7 +279,7 @@ dnf update
 Если обновилось ядро перезагружаемся
 
 ```sh
-dnf install binutils gcc make patch libgomp glibc-headers \
+sudo dnf install binutils gcc make patch libgomp glibc-headers \
 glibc-devel kernel-headers kernel-devel dkms
 
 dnf install VirtualBox-5.0
@@ -288,7 +288,12 @@ dnf install VirtualBox-5.0
 
 usermod -a -G vboxusers username
 ```
+Удаляем старые ядра
 
+```sh
+sudo dnf install yum-utils
+sudo package-cleanup --oldkernels
+```
 
 Устанавливаем Vagrant:
 
