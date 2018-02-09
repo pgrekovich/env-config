@@ -1,16 +1,18 @@
-## Atom Theme and Plugins
+## VSCode Theme and Plugins
 
 Plugins:
-- `vim-mode`
-- `language-slim`
-- `language-jade`
-- `language-postcss`
-- `gtk-dark-theme`
-- `file-icons`
-- `linter`
-- `linter-eslint`
-- `linter-stylelint`
-- `minimap`
+
+- `ayu`
+- `eslint`
+- `markdownlint`
+- `git history`
+- `indent rainbow`
+- `material icon theme`
+- `path intellisense`
+- `prettier`
+- `vim`
+- `vscode-styled-components`
+- `sort lines`
 - `minimap-linter`
 - `minimap-find-and-replace`
 
