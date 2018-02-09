@@ -14,13 +14,12 @@ Plugins:
 - `minimap-linter`
 - `minimap-find-and-replace`
 
-Themes:
+Theme:
 
-- `atom-material-ui`
-- `atom-panda-syntax`
+- `Ayu Dark`
 
 Font:
 
 - [Fira Code Retina](https://github.com/tonsky/FiraCode)
 
-See also: [Atom configs](./atom/)
+See also: [VSCode configs](./vscode/)

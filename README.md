@@ -325,15 +325,17 @@ include \"/usr/share/nano/*.nanorc\"' >> /etc/nanorc"
 sudo dnf install vim
 ```
 
-Установить Атом:
+Установить VSCode:
 
 ```sh
-wget https://atom.io/download/rpm -O atom.rpm
-sudo dnf install atom.rpm
-rm atom.rpm
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+dnf check-update
+sudo dnf install code
 ```
 
-Устанавливаем темы и плагины из `Atom.md`.
+Устанавливаем темы и плагины из `VSCode.md`.
 
 Устанавливаем ngrok. Скачиваем [архив](https://ngrok.com/download).
 
